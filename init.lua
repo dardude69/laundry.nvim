@@ -13,8 +13,7 @@ require('lazy').setup {
     spec = {
         {
             'neanias/everforest-nvim',
-            config = function()
-                require('everforest').setup()
+            init = function()
                 vim.cmd('colorscheme ' .. colorscheme)
             end,
         },
@@ -63,6 +62,11 @@ require('lazy').setup {
                     indent = { enable = true },
                 }
             end,
+        },
+
+        {
+            'romgrk/barbar.nvim',
+            dependencies = { 'nvim-tree/nvim-web-devicons' },
         }
     },
 }

@@ -1,4 +1,5 @@
 {
+  "barbar.nvim": { "branch": "master", "commit": "c20691d686addb0d6ea87896d186c082324b01f8" },
   "everforest-nvim": { "branch": "main", "commit": "2c40c11b971da120796564e69aecce7e7c82a854" },
   "lazy.nvim": { "branch": "main", "commit": "077102c5bfc578693f12377846d427f49bc50076" },
   "lualine.nvim": { "branch": "master", "commit": "b431d228b7bbcdaea818bdc3e25b8cdbe861f056" },
