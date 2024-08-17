@@ -1,7 +1,5 @@
 -- Require order is important!
-require 'laundry.gutter'
-require 'laundry.indent'
-require 'laundry.remap'
+require 'laundry.vanilla'
 require 'laundry.lazy'
 
 print 'Hello, Laundry Vim!'
@@ -30,6 +28,16 @@ require('lazy').setup {
             },
             tag = '0.1.8',
             dependencies = { 'nvim-lua/plenary.nvim' },
+        },
+
+        {
+            'nvim-tree/nvim-tree.lua',
+            dependencies = { 'nvim-tree/nvim-web-devicons' },
+            keys = {
+                { '<leader>e', '<cmd>NvimTreeToggle<cr>' },
+            },
+            lazy = false, -- Disabling lazy loading is recommended
+            opts = {},
         },
 
         {
