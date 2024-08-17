@@ -1,4 +1,5 @@
 -- Require order is important!
+require 'laundry.gutter'
 require 'laundry.indent'
 require 'laundry.remap'
 require 'laundry.lazy'
