@@ -17,6 +17,11 @@ require('lazy').setup {
 
     spec = {
         {
+            'nvim-lualine/lualine.nvim',
+            dependencies = { 'nvim-tree/nvim-web-devicons' },
+        },
+
+        {
             'nvim-telescope/telescope.nvim',
             keys = {
                 { '<leader>ff', '<cmd>Telescope find_files<cr>' },
