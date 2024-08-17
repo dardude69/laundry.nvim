@@ -26,5 +26,22 @@ require('lazy').setup {
             tag = '0.1.8',
             dependencies = { 'nvim-lua/plenary.nvim' },
         },
+
+        {
+            'nvim-treesitter/nvim-treesitter',
+            build = ':TSUpdate',
+            config = function()
+                local configs = require 'nvim-treesitter.configs'
+                configs.setup {
+                    auto_install = true,
+                    highlight = {
+                        additional_vim_regex_highlighting = false,
+                        enable = true,
+                    },
+                    -- incremental_selection looks cool, but I don't really understand it
+                    indent = { enable = true },
+                }
+            end,
+        }
     },
 }
