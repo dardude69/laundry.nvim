@@ -1,8 +1,5 @@
--- Require order is important!
 require 'laundry.vanilla'
 require 'laundry.lazy'
-
-print 'Hello, Laundry Vim!'
 
 local colorscheme = 'everforest'
 
