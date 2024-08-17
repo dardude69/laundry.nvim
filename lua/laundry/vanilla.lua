@@ -16,6 +16,11 @@ vim.g.loaded_netrwPlugin = 1
 
 vim.opt.termguicolors = true -- Enable 24-bit color
 
+-- Colorcolumn
+
+vim.opt.textwidth = 99
+vim.opt.colorcolumn = { '+1' } -- One character ahead of the colorcolumn
+
 -- Gutter
 
 vim.opt.number = true -- Show line numbers

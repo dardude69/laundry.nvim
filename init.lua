@@ -12,6 +12,11 @@ require('lazy').setup {
 
     spec = {
         {
+            'lewis6991/gitsigns.nvim',
+            config = true,
+        },
+
+        {
             'neanias/everforest-nvim',
             init = function()
                 vim.cmd.colorscheme(colorscheme)
@@ -20,6 +25,7 @@ require('lazy').setup {
 
         {
             'nvim-lualine/lualine.nvim',
+            config = true,
             dependencies = {
                 'neanias/everforest-nvim',
                 'nvim-tree/nvim-web-devicons',
@@ -84,6 +90,20 @@ require('lazy').setup {
                 { '<A-9>', '<cmd>BufferGoto 9<cr>' },
                 { '<A-0>', '<cmd>BufferGoto 0<cr>' },
             },
-        }
+        },
+
+        {
+            -- Display a character as the colorcolumn
+            'lukas-reineke/virt-column.nvim',
+            config = true,
+        },
+
+        -- LSP
+
+        {
+            -- Mason installs language servers (and other tooling external to
+            -- NeoVim -- like linters).
+
+        },
     },
 }
