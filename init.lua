@@ -14,7 +14,7 @@ require('lazy').setup {
         {
             'neanias/everforest-nvim',
             init = function()
-                vim.cmd('colorscheme ' .. colorscheme)
+                vim.cmd.colorscheme(colorscheme)
             end,
         },
 
