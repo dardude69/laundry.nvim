@@ -4,7 +4,7 @@ require 'laundry.lazy'
 
 print 'Hello, Laundry Vim!'
 
-local colorscheme = 'habamax'
+local colorscheme = 'everforest'
 
 require('lazy').setup {
     -- See: https://lazy.folke.io/configuration
@@ -15,8 +15,19 @@ require('lazy').setup {
 
     spec = {
         {
+            'neanias/everforest-nvim',
+            config = function()
+                require('everforest').setup()
+                vim.cmd('colorscheme ' .. colorscheme)
+            end,
+        },
+
+        {
             'nvim-lualine/lualine.nvim',
-            dependencies = { 'nvim-tree/nvim-web-devicons' },
+            dependencies = {
+                'neanias/everforest-nvim',
+                'nvim-tree/nvim-web-devicons',
+            },
         },
 
         {

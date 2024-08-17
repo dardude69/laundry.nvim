@@ -5,6 +5,8 @@
 vim.g.mapleader = ' '
 vim.g.maplocalleader = '\\'
 
+vim.keymap.set('n', 'gg', '^gg')
+
 -- Disable NetRW
 
 vim.g.loaded_netrw = 1
