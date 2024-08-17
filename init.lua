@@ -99,11 +99,36 @@ require('lazy').setup {
         },
 
         -- LSP
+        --
+        -- These plugins are very interdependent, and the loading order matters, so I've disabled
+        -- lazy-loading for each of them.
 
+        -- Mason installs LSP servers (and other tooling **external** to NeoVim e.g. linters).
         {
-            -- Mason installs language servers (and other tooling external to
-            -- NeoVim -- like linters).
+            'williamboman/mason.nvim',
+            config = true,
+            lazy = false,
+        },
 
+        -- Mason-LSPConfig
+        {
+            'williamboman/mason-lspconfig.nvim',
+            config = true,
+            dependencies = { 'williamboman/mason.nvim' },
+            lazy = false,
+        },
+
+        -- LSPConfig configures the built-in NeoVim LSP client to use different LSP servers.
+        {
+            'neovim/nvim-lspconfig',
+            config = function()
+                -- TODO
+            end,
+            dependencies = {
+                'williamboman/mason.nvim',
+                'williamboman/mason-lspconfig.nvim',
+            },
+            lazy = false,
         },
     },
 }
