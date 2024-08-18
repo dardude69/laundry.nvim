@@ -120,17 +120,25 @@ require('lazy').setup {
         -- Particularly, as of writing I don't care about snippet or Vim Cmdline completion.
         {
             'hrsh7th/nvim-cmp',
+            config = function()
+                local cmp = require 'cmp'
+                cmp.setup {
+                    mapping = {
+                        ['<Tab>'] = cmp.mapping.select_next_item(),
+                        ['<S-Tab>'] = cmp.mapping.select_prev_item(),
+                        ['<CR>'] = cmp.mapping.confirm(),
+                    },
+                    sources = {
+                        { name = 'calc' },
+                        { name = 'emoji' },
+                        { name = 'path' },
+                    },
+                }
+            end,
             dependencies = {
                 'hrsh7th/cmp-calc',
                 'hrsh7th/cmp-emoji',
                 'hrsh7th/cmp-path',
-            },
-            opts = {
-                sources = {
-                    { name = 'calc' },
-                    { name = 'emoji' },
-                    { name = 'path' },
-                },
             },
         },
 
