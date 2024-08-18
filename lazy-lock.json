@@ -1,4 +1,5 @@
 {
+  "alpha-nvim": { "branch": "main", "commit": "355fbb81a59637a8963cf5847074f8c44dbef11f" },
   "barbar.nvim": { "branch": "master", "commit": "c20691d686addb0d6ea87896d186c082324b01f8" },
   "cmp-calc": { "branch": "main", "commit": "5947b412da67306c5b68698a02a846760059be2e" },
   "cmp-emoji": { "branch": "main", "commit": "e8398e2adf512a03bb4e1728ca017ffeac670a9f" },

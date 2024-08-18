@@ -29,6 +29,18 @@ require('lazy').setup {
         },
 
         {
+            'goolord/alpha-nvim',
+            config = function()
+                local startify = require 'alpha.themes.startify'
+
+                startify.section.header.val = require('laundry.header')
+
+                require('alpha').setup(startify.config)
+            end,
+            dependencies = { 'nvim-tree/nvim-web-devicons' },
+        },
+
+        {
             'kdheepak/lazygit.nvim',
             cmd = {
                 -- Plugin lazy-loaded on these commands:
