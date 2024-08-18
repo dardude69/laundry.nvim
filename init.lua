@@ -131,6 +131,7 @@ require('lazy').setup {
                     sources = {
                         { name = 'calc' },
                         { name = 'emoji' },
+                        { name = 'nvim_lsp' },
                         { name = 'path' },
                     },
                 }
@@ -138,6 +139,7 @@ require('lazy').setup {
             dependencies = {
                 'hrsh7th/cmp-calc',
                 'hrsh7th/cmp-emoji',
+                'hrsh7th/cmp-nvim-lsp',
                 'hrsh7th/cmp-path',
             },
         },
@@ -167,8 +169,9 @@ require('lazy').setup {
         {
             'williamboman/mason-lspconfig.nvim',
             dependencies = {
+                'hrsh7th/cmp-nvim-lsp',
+                'neovim/nvim-lspconfig',
                 'williamboman/mason.nvim',
-                'neovim/nvim-lspconfig'
             },
             lazy = false,
             opts = {
@@ -179,7 +182,9 @@ require('lazy').setup {
                     -- Default handler; by default, LSP client settings are set up for all
                     -- languages.
                     function(server_name)
-                        require('lspconfig')[server_name].setup {}
+                        require('lspconfig')[server_name].setup {
+                            capabilities = require('cmp_nvim_lsp').default_capabilities()
+                        }
                     end,
                 },
             },
