@@ -106,6 +106,7 @@ require('lazy').setup {
                 { '<A-9>', '<cmd>BufferGoto 9<cr>' },
                 { '<A-0>', '<cmd>BufferGoto 0<cr>' },
             },
+            lazy = false,
         },
 
         {
