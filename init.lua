@@ -98,6 +98,26 @@ require('lazy').setup {
             config = true,
         },
 
+        -- Completion
+        --
+        -- I don't need much out of autocompletion, so this section can stay fairly small.
+        -- Particularly, as of writing I don't care about snippet or Vim Cmdline completion.
+        {
+            'hrsh7th/nvim-cmp',
+            dependencies = {
+                'hrsh7th/cmp-calc',
+                'hrsh7th/cmp-emoji',
+                'hrsh7th/cmp-path',
+            },
+            opts = {
+                sources = {
+                    { name = 'calc' },
+                    { name = 'emoji' },
+                    { name = 'path' },
+                },
+            },
+        },
+
         -- LSP
         --
         -- These plugins are very interdependent, and the loading order matters, so I've disabled
