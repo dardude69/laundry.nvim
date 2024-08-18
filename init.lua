@@ -12,6 +12,22 @@ require('lazy').setup {
 
     spec = {
         {
+            'kdheepak/lazygit.nvim',
+            cmd = {
+                -- Plugin lazy-loaded on these commands:
+                'LazyGit',
+                'LazyGitConfig',
+                'LazyGitCurrentFile',
+                'LazyGitFilter',
+                'LazyGitFilterCurrentFile',
+            },
+            dependencies = { 'nvim-lua/plenary.nvim' },
+            keys = {
+                { '<leader>gg', '<cmd>LazyGit<cr>' },
+            },
+        },
+
+        {
             'lewis6991/gitsigns.nvim',
             config = true,
         },
