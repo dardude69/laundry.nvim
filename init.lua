@@ -7,7 +7,13 @@ require('lazy').setup {
     -- See: https://lazy.folke.io/configuration
     -- Also: https://lazy.folke.io/spec
 
-    checker = { enabled = true }, -- automatically check for plugin updates
+    checker = {
+        enabled = true,
+
+        -- These notifications are very frequent and annoying
+        -- TODO: Put them on Lualine
+        notify = false,
+    },
     install = { colorscheme = { colorscheme } }, -- colorscheme to load during startup installation
 
     spec = {
