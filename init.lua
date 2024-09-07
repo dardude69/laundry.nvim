@@ -186,10 +186,21 @@ require('lazy').setup {
         -- lazy-loading for each of them.
 
         -- Client configuration:
-        -- LSPConfig configures the built-in NeoVim LSP client to use different LSP servers.
+        -- LSPConfig chooses/launches an appropriate language server based on detected filetype,
+        -- configures the built-in LSP client with per-language settings, and attaches
+        -- currently-active buffers to language servers.
         {
             'neovim/nvim-lspconfig',
-            config = false,
+            config = function()
+                -- LSPConfig uses a separate setup function per language server. Mostly, we want to
+                -- run these after a given language server is installed by Mason.
+                --
+                -- The exception is GDScript here, which doesn't have an independent language
+                -- server which Mason can install.
+                require('lspconfig').gdscript.setup {
+
+                }
+            end,
             lazy = false,
         },
 

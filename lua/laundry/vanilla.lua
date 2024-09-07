@@ -64,3 +64,15 @@ vim.api.nvim_create_autocmd('FileType', {
         vim.opt_local.suffixesadd = '.js,.json,.jsx,.mjs,.ts,.tsx'
     end,
 })
+
+vim.api.nvim_create_autocmd('FileType', {
+    pattern = 'gdscript',
+    callback = function()
+        -- Indent with tabs -- I started Laundry Game this way like a goober, so I'm just sticking
+        -- with it for now.
+        vim.opt_local.autoindent = true
+        vim.opt_local.expandtab = false
+        vim.opt_local.tabstop = 4
+        vim.opt_local.shiftwidth = 0 -- Use tabstop
+    end,
+})
