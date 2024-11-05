@@ -6,6 +6,7 @@ vim.g.mapleader = ' '
 vim.g.maplocalleader = '\\'
 
 vim.keymap.set('n', 'gg', '^gg')
+vim.keymap.set({'n', 'i'}, '<F1>', '<Nop>') -- Stop opening help with F1
 
 -- LSP Keybinds
 
