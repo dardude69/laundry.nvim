@@ -77,3 +77,21 @@ vim.api.nvim_create_autocmd('FileType', {
         vim.opt_local.shiftwidth = 0 -- Use tabstop
     end,
 })
+
+-- LSP server cancellation is currently handled with a popup in NeoVim, which is incompatible with
+-- Rust Analyzer (it interrupts keystrokes in a really annoying way).
+--
+-- https://www.reddit.com/r/rust/comments/1geyfld/rustanalyzer_server_cancelled_the_request_in/
+-- https://github.com/neovim/neovim/issues/30985
+--
+-- This workaround makes NeoVim ignore server cancellation requests:
+
+for _, method in ipairs({ 'textDocument/diagnostic', 'workspace/diagnostic' }) do
+    local default_diagnostic_handler = vim.lsp.handlers[method]
+    vim.lsp.handlers[method] = function(err, result, context, config)
+        if err ~= nil and err.code == -32802 then
+            return
+        end
+        return default_diagnostic_handler(err, result, context, config)
+    end
+end
