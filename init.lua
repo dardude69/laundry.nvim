@@ -2,19 +2,20 @@ require 'laundry.vanilla'
 require 'laundry.lazy'
 
 local colorscheme = 'everforest'
+local safe_mode = true
 
 require('lazy').setup {
     -- See: https://lazy.folke.io/configuration
     -- Also: https://lazy.folke.io/spec
 
     checker = {
-        enabled = true,
+        enabled = not safe_mode,
 
         -- These notifications are very frequent and annoying
         -- TODO: Put them on Lualine
         notify = false,
     },
-    install = { colorscheme = { colorscheme } }, -- colorscheme to load during startup installation
+    install = { colorscheme = not safe_mode and { colorscheme } or nil }, -- colorscheme to load during startup installation
 
     spec = {
         {
@@ -36,6 +37,7 @@ require('lazy').setup {
 
         {
             'goolord/alpha-nvim',
+            enabled = not safe_mode,
             config = function()
                 local startify = require 'alpha.themes.startify'
 
@@ -64,11 +66,13 @@ require('lazy').setup {
 
         {
             'lewis6991/gitsigns.nvim',
+            enabled = not safe_mode,
             config = true,
         },
 
         {
             'neanias/everforest-nvim',
+            enabled = not safe_mode,
             init = function()
                 vim.cmd.colorscheme(colorscheme)
             end,
@@ -76,6 +80,7 @@ require('lazy').setup {
 
         {
             'nvim-lualine/lualine.nvim',
+            enabled = not safe_mode,
             config = true,
             dependencies = {
                 'neanias/everforest-nvim',
@@ -96,6 +101,7 @@ require('lazy').setup {
 
         {
             'nvim-tree/nvim-tree.lua',
+            enabled = not safe_mode,
             dependencies = { 'nvim-tree/nvim-web-devicons' },
             keys = {
                 { '<leader>e', '<cmd>NvimTreeToggle<cr>' },
@@ -106,6 +112,7 @@ require('lazy').setup {
 
         {
             'nvim-treesitter/nvim-treesitter',
+            enabled = not safe_mode,
             build = ':TSUpdate',
             config = function()
                 local configs = require 'nvim-treesitter.configs'
