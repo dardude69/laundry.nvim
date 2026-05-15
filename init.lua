@@ -3,6 +3,8 @@ require 'laundry.lazy'
 
 local colorscheme = 'everforest'
 
+-- TODO: Switch to NeoVim's built-in plugin manager (vim.pack).
+
 require('lazy').setup {
     -- See: https://lazy.folke.io/configuration
     -- Also: https://lazy.folke.io/spec
@@ -197,9 +199,7 @@ require('lazy').setup {
                 --
                 -- The exception is GDScript here, which doesn't have an independent language
                 -- server which Mason can install.
-                require('lspconfig').gdscript.setup {
-
-                }
+                vim.lsp.enable('gdscript')
             end,
             lazy = false,
         },
