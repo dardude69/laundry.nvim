@@ -36,6 +36,7 @@ vim.g.loaded_netrwPlugin = 1
 -- Colors
 
 vim.opt.termguicolors = true -- Enable 24-bit color
+vim.o.background = 'dark'
 
 -- Colorcolumn
 
@@ -78,6 +79,8 @@ vim.api.nvim_create_autocmd('FileType', {
     end,
 })
 
+-- Workaround:
+--
 -- LSP server cancellation is currently handled with a popup in NeoVim, which is incompatible with
 -- Rust Analyzer (it interrupts keystrokes in a really annoying way).
 --

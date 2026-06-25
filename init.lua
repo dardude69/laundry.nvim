@@ -186,33 +186,28 @@ require('lazy').setup {
         -- lazy-loading for each of them.
 
         -- Client configuration:
-        -- LSPConfig chooses/launches an appropriate language server based on detected filetype,
-        -- configures the built-in LSP client with per-language settings, and attaches
-        -- currently-active buffers to language servers.
+        --
+        -- nvim-lspconfig is a collection of community-maintained configurations for the NeoVim LSP
+        -- client -- they should be automatically merged with those configurations maintained here,
+        -- in `lsp/`
         {
             'neovim/nvim-lspconfig',
-            config = function()
-                -- LSPConfig uses a separate setup function per language server. Mostly, we want to
-                -- run these after a given language server is installed by Mason.
-                --
-                -- The exception is GDScript here, which doesn't have an independent language
-                -- server which Mason can install.
-                require('lspconfig').gdscript.setup {
-
-                }
-            end,
             lazy = false,
         },
 
         -- Server installation:
-        -- Mason installs LSP servers (and other tooling **external** to NeoVim e.g. linters).
+        --
+        -- Mason installs LSP servers (and other tooling external to NeoVim e.g. linters).
         {
             'williamboman/mason.nvim',
             config = true,
             lazy = false,
         },
 
-        -- Mason-LSPConfig
+        -- mason-lspconfig
+        --
+        -- Provide the :LspInstall command, and automatically enable i.e. `vim.lsp.enable()`
+        -- installed servers.
         {
             'williamboman/mason-lspconfig.nvim',
             dependencies = {
@@ -222,19 +217,13 @@ require('lazy').setup {
             },
             lazy = false,
             opts = {
-                -- LSPs configured via LSPConfig should automatically have their servers installed.
-                automatic_installation = true,
-
-                handlers = {
-                    -- Default handler; by default, LSP client settings are set up for all
-                    -- languages.
-                    function(server_name)
-                        require('lspconfig')[server_name].setup {
-                            capabilities = require('cmp_nvim_lsp').default_capabilities()
-                        }
-                    end,
-                },
+                automatic_enable = true,
             },
         },
     },
 }
+
+-- vim.lsp.config('rust_analyzer', {
+--     capabilities = require('cmp_nvim_lsp').default_capabilities()
+-- })
+-- vim.lsp.enable('rust_analyzer')
