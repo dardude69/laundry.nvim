@@ -110,15 +110,21 @@ require('lazy').setup {
             'nvim-treesitter/nvim-treesitter',
             build = ':TSUpdate',
             config = function()
-                local configs = require 'nvim-treesitter.configs'
-                configs.setup {
-                    auto_install = true,
-                    highlight = {
-                        additional_vim_regex_highlighting = false,
-                        enable = true,
-                    },
-                    -- incremental_selection looks cool, but I don't really understand it
-                    indent = { enable = true },
+                require('nvim-treesitter').install {
+                    'bash',
+                    'css',
+                    'html',
+                    'javascript',
+                    'json',
+                    'lua',
+                    'markdown',
+                    'python',
+                    'regex',
+                    'rust',
+                    'toml',
+                    'typescript',
+                    'xml',
+                    'yaml',
                 }
             end,
         },
