@@ -1,5 +1,10 @@
 # Laundry (Neo)Vim
 
+Very due for a rewrite! I'm keeping this on life-support for now because I can't be bothered.
+Don't forget to install tree-sitter with :Mason when getting started.
+
+...
+
 Don't use my shitty config -- get empowered! Make your own!
 It's easier than modding Skyrim!
 
