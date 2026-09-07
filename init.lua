@@ -87,13 +87,16 @@ require('lazy').setup {
 
         {
             'nvim-telescope/telescope.nvim',
+            version = '*',
+            dependencies = {
+                'nvim-lua/plenary.nvim',
+                { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
+            },
             keys = {
                 { '<leader>ff', '<cmd>Telescope find_files<cr>' },
                 { '<leader>fg', '<cmd>Telescope live_grep<cr>' },
                 { '<C-p>', '<cmd>Telescope git_files<cr>' },
             },
-            tag = '0.1.8',
-            dependencies = { 'nvim-lua/plenary.nvim' },
         },
 
         {
