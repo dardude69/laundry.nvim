@@ -1,7 +1,7 @@
 require 'laundry.vanilla'
 require 'laundry.lazy'
 
-local colorscheme = 'everforest'
+local colorscheme = 'tokyonight-storm'
 
 -- TODO: Switch to NeoVim's built-in plugin manager (vim.pack).
 
@@ -70,7 +70,9 @@ require('lazy').setup {
         },
 
         {
-            'neanias/everforest-nvim',
+            'folke/tokyonight.nvim',
+            lazy = false,
+            priority = 1000,
             init = function()
                 vim.cmd.colorscheme(colorscheme)
             end,
