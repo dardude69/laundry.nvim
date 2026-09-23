@@ -163,6 +163,13 @@ require('lazy').setup {
             config = true,
         },
 
+        {
+            'kylechui/nvim-surround',
+            version = '^4.0.0',
+            event = 'VeryLazy',
+            config = true,
+        },
+
         -- Completion
         --
         -- I don't need much out of autocompletion, so this section can stay fairly small.
